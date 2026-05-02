@@ -6,25 +6,22 @@ namespace VideoGameManager.Services
 {
     public class GameService
     {
-        //1.3  Crea la carpeta Services/ i afegeix la classe GameService
-        //amb una llista en memòria i els mètodes GetAll, GetById, Add, Update i Delete.
+        private readonly List<Game> _games;
 
-        private readonly List<Game> _games = new()
-        {
-            new() { Id=1, Title="The Legend of Zelda: TotK", Genre="Adventure",
-                    Year=2023, Score=9.8, Description="Open-world action RPG" },
-            new() { Id=2, Title="Elden Ring", Genre="RPG",
-                    Year=2022, Score=9.5, Description="Open-world soulslike" },
-            new() { Id=3, Title="Celeste", Genre="Platformer",
-                    Year=2018, Score=9.0, Description="Precision platformer" },
-        };
-
-
-        private int _nextId = 1;
+        private int _nextId = 4;
 
         public GameService()
         {
-            _games = new List<Game>();
+            _games = new List<Game>
+            {
+                new() { Id=1, Title="The Legend of Zelda: TotK", Genre="Adventure",
+                        Year=2023, Score=9.8, Description="Open-world action RPG" },
+                new() { Id=2, Title="Elden Ring", Genre="RPG",
+                        Year=2022, Score=9.5, Description="Open-world soulslike" },
+                new() { Id=3, Title="Celeste", Genre="Platformer",
+                        Year=2018, Score=9.0, Description="Precision platformer" }
+            };
+
         }
         public List<Game> GetAll() => _games;
 
